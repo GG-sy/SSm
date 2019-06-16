@@ -45,10 +45,6 @@
 <body>
 <h1>学生信息列表</h1>
 
-<a href="${pageContext.request.contextPath}/add.jsp">新增</a>
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-<button onclick="dels()">批量删除</button>
-
 <table border="1" cellspacing="0">
     <tr>
         <th>
@@ -84,6 +80,11 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <th colspan="1"><button onclick="dels()">批量删除</button></th>
+        <th colspan="5">项目作者：<a href="https://gitee.com/cnsdhh">https://gitee.com/cnsdhh</a></th>
+        <th colspan="1"><a href="${pageContext.request.contextPath}/add.jsp">新增</a></th>
+    </tr>
 </table>
 </body>
 </html>
