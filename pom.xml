@@ -113,14 +113,12 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
-            <scope>compile</scope>
         </dependency>
         <!-- 阿里 druid 连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>${druid.version}</version>
-            <scope>compile</scope>
         </dependency>
         <!-- c3p0 连接池 -->
         <dependency>
