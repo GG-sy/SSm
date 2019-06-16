@@ -4,13 +4,13 @@ Navicat MySQL Data Transfer
 Source Server         : localhost@mm
 Source Server Version : 50540
 Source Host           : 127.0.0.1:3361
-Source Database       : ssm
+Source Database       : ssmweb
 
 Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2019-06-12 09:20:00
+Date: 2019-06-16 10:55:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `t_log` (
   `url` varchar(200) DEFAULT NULL COMMENT '访问地址',
   `cost` int(11) DEFAULT NULL COMMENT '请求耗时',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_log
@@ -43,7 +43,7 @@ CREATE TABLE `t_student` (
   `age` int(11) DEFAULT NULL COMMENT '年龄',
   `address` varchar(100) DEFAULT NULL COMMENT '住址',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of t_student
@@ -64,7 +64,7 @@ CREATE TABLE `t_user` (
   `username` varchar(32) DEFAULT NULL COMMENT '用户名',
   `password` varchar(32) DEFAULT NULL COMMENT '用户密码',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of t_user
