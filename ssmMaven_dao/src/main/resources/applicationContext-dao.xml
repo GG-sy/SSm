@@ -25,6 +25,7 @@
     <!-- MyBaties核心配置 -->
     <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
         <property name="dataSource" ref="druidDataSource"/>
+        <!--给POJO对象起别名（若使用注解方式开发此项可以省略）-->
         <property name="typeAliasesPackage" value="com.cnsdhh.domain"/>
     </bean>
 
