@@ -30,6 +30,7 @@
     </bean>
 
     <!-- MyBatis dao 映射配置 -->
+    <!-- 此配置会自动扫描dao包下的所有接口并创建代理对象，最后放入容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.cnsdhh.dao"/>
     </bean>
