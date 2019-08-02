@@ -9,17 +9,6 @@ public class Log {
     private String url;
     private long cost;
 
-    @Override
-    public String toString() {
-        return "Log{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", time=" + time +
-                ", url='" + url + '\'' +
-                ", cost=" + cost +
-                '}';
-    }
-
     public Integer getId() {
         return id;
     }
@@ -58,5 +47,16 @@ public class Log {
 
     public void setCost(long cost) {
         this.cost = cost;
+    }
+
+    @Override
+    public String toString() {
+        return "Log{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", time=" + time +
+                ", url='" + url + '\'' +
+                ", cost=" + cost +
+                '}';
     }
 }

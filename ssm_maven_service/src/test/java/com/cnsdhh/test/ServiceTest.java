@@ -1,6 +1,8 @@
-package com.cnsdhh.ssmmaven;
+package com.cnsdhh.test;
 
+import com.cnsdhh.ssmmaven.pojo.Log;
 import com.cnsdhh.ssmmaven.pojo.Student;
+import com.cnsdhh.ssmmaven.service.LogService;
 import com.cnsdhh.ssmmaven.service.StudentService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,5 +33,18 @@ public class ServiceTest {
         Student student = studentService.findOne(3);
         System.out.println(student);
     }
+
+//    @Autowired
+//    private LogService logService;
+//
+//    @Test
+//    public void logServiceInsert() {
+//        Log log = new Log();
+//        log.setUsername("service");
+//        log.setTime(new Date());
+//        log.setUrl("test service ...");
+//        log.setCost(200);
+//        logService.insertLog(log);
+//    }
 
 }

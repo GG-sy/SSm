@@ -1,6 +1,8 @@
-package com.cnsdhh.ssmmaven;
+package com.cnsdhh.test;
 
+import com.cnsdhh.ssmmaven.mapper.LogDao;
 import com.cnsdhh.ssmmaven.mapper.StudentDao;
+import com.cnsdhh.ssmmaven.pojo.Log;
 import com.cnsdhh.ssmmaven.pojo.Student;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -61,6 +64,19 @@ public class DaoTest {
 //        student.setAge(33);
 //        student.setAddress("郑州");
 //        studentDao.change(student);
+//    }
+
+    @Autowired
+    private LogDao logDao;
+
+//    @Test
+//    public void logDaoInsert() {
+//        Log log = new Log();
+//        log.setUsername("dao");
+//        log.setTime(new Date());
+//        log.setUrl("test dao ....");
+//        log.setCost(100);
+//        logDao.insertLog(log);
 //    }
 
 }
