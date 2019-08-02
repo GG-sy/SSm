@@ -21,7 +21,7 @@ import java.util.Map;
 @RequestMapping("/student")
 public class StudentController {
 
-    // testURL : http://localhost:8082/student/test.do?name=中国
+    // testURL : http://localhost:8080/student/test.do?name=中国
     @RequestMapping("/test")
     @ResponseBody
     public String test(String name, HttpServletResponse response) throws UnsupportedEncodingException {
@@ -52,7 +52,7 @@ public class StudentController {
     }
 
     // 添加学生信息
-    // testURL : http://localhost:8082/student/add.do?name=测试2&sex=0&age=33&address=宁波
+    // testURL : http://localhost:8080/student/add.do?name=测试2&sex=0&age=33&address=宁波
     @RequestMapping("/add")
     @ResponseBody
     public Map add(@RequestBody Student student) {

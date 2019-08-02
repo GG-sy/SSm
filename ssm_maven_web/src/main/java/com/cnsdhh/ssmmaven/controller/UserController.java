@@ -21,7 +21,7 @@ public class UserController {
     }
 
     // 查询登录用户（POST方式）
-    // testURL : http://localhost:8082/user/login.html
+    // testURL : http://localhost:8080/user/login.html
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody Map login(@RequestBody User user, HttpServletRequest request) {
         Map<String, Object> resultMap = BaseController.getResultMap();
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     // 查询登录用户（GET方式）
-    // testURL : http://localhost:8082/user/login.do?username=admin&password=admin
+    // testURL : http://localhost:8080/user/login.do?username=admin&password=admin
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public @ResponseBody Map login(
             @RequestParam(value = "username", required = false) String username,
