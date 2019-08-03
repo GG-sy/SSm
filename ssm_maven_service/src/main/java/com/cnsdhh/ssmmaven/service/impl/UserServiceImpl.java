@@ -18,10 +18,9 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
-    // 查询登录用户信息
-    @Override
-    public User login(String username, String password) {
-        return userDao.login(username, password);
+    // 根据username查询用户信息
+    public User login(String username) {
+        return userDao.login(username);
     }
 
     // 添加登录用户信息

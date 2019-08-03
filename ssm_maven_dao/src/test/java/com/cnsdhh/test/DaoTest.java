@@ -86,7 +86,7 @@ public class DaoTest {
 
     @Test
     public void userDaoLogin() {
-        User loginUser = userDao.login("lalala", "111111");
+        User loginUser = userDao.login("haohao");
         System.out.println(loginUser);
     }
 

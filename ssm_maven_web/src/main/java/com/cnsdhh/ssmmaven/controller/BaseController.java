@@ -28,11 +28,10 @@ public class BaseController {
         }
     }
 
-    // 判断用户是否已登录，如果已登录就删除登录用户
-    static void ifLogin(HttpServletRequest request) {
-        if (request.getSession().getAttribute("loginUser") != null) {
-            request.getSession().removeAttribute("loginUser");
-        }
+    // 从会话中移除登录用户
+    static void removeLogin(HttpServletRequest request) {
+        request.getSession().removeAttribute("user");
+        request.getSession().removeAttribute("loginUser");
     }
 
 }
