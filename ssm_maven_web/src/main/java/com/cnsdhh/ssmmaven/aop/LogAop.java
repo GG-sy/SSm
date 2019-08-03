@@ -32,11 +32,11 @@ public class LogAop {
         long cost = new Date().getTime() - start.getTime();
 
         String username = "";
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
-            username = user.getUsername();
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        if (loginUser != null) {
+            username = loginUser.getUsername();
         } else {
-            username = request.getParameter("username") + "[false]";
+            username = ((User) request.getSession().getAttribute("user")).getUsername() + "[false]";
         }
 
         String className = pjp.getTarget().getClass().getName();

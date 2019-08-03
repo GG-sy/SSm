@@ -12,6 +12,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
 ">
 
+    <import resource="classpath:spring/spring-aop.xml"/>
     <import resource="classpath:spring/spring-service.xml"/>
 
     <!--自动扫描注解组件-->

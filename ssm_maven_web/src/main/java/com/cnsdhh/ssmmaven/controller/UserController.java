@@ -24,9 +24,10 @@ public class UserController {
     // testURL : http://localhost:8080/static/user/login.html
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody Map login(@RequestBody User user, HttpServletRequest request) {
+        request.getSession().setAttribute("user", user);
         Map<String, Object> resultMap = BaseController.getResultMap();
         BaseController.ifLogin(request);  // 删除登录状态
-        if (user != null) {
+        if (user != null && "".equalsIgnoreCase(user.getUsername()) && "".equalsIgnoreCase(user.getPassword())) {
             String username = user.getUsername();
             String password = user.getPassword();
             try {
@@ -84,9 +85,10 @@ public class UserController {
     // 用户注册（POST方式）
     // testURL : http://localhost:8080/static/user/register.html
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public @ResponseBody Map register(@RequestBody User user) {
+    public @ResponseBody Map register(@RequestBody User user, HttpServletRequest request) {
+        request.getSession().setAttribute("user", user);
         Map<String, Object> resultMap = BaseController.getResultMap();
-        if (user != null) {
+        if (user != null && "".equalsIgnoreCase(user.getUsername()) && "".equalsIgnoreCase(user.getPassword())) {
             try {
                 Integer status = userService.register(user);
                 return BaseController.ifStatus(status, resultMap);
