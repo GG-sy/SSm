@@ -94,17 +94,23 @@ public class UserController {
         Map<String, Object> resultMap = BaseController.getResultMap();
         request.getSession().setAttribute("user", user);
         if (user != null && !"".equalsIgnoreCase(user.getUsername()) && !"".equalsIgnoreCase(user.getPassword())) {
-            System.out.println("加密前的用户 : " + user);
-            // 密码加密
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String password = passwordEncoder.encode(user.getPassword());
-            user.setPassword(password);
-            System.out.println("加密后的用户 : " + user);
-            try {
-                Integer status = userService.register(user);
-                return BaseController.ifStatus(status, resultMap);
-            } catch (Exception e) {
-                resultMap.put("mssg", "服务器出错");
+            User loginUser = userService.login(user.getUsername());
+            if (loginUser == null) {
+                System.out.println("加密前的用户 : " + user);
+                // 密码加密
+                BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+                String password = passwordEncoder.encode(user.getPassword());
+                user.setPassword(password);
+                System.out.println("加密后的用户 : " + user);
+                try {
+                    Integer status = userService.register(user);
+                    return BaseController.ifStatus(status, resultMap);
+                } catch (Exception e) {
+                    resultMap.put("mssg", "服务器出错");
+                    return resultMap;
+                }
+            } else {
+                resultMap.put("mssg", "用户名已存在，请换个别的试试");
                 return resultMap;
             }
         } else {
