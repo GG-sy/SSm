@@ -1,13 +1,11 @@
 package com.cnsdhh.ssmmaven.aop;
 
-import com.cnsdhh.ssmmaven.controller.BaseController;
 import com.cnsdhh.ssmmaven.pojo.Log;
 import com.cnsdhh.ssmmaven.pojo.User;
 import com.cnsdhh.ssmmaven.service.LogService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
