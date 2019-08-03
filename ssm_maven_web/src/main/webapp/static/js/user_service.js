@@ -6,4 +6,9 @@ app.service("userService", function ($http, $rootScope) {
         return $http.post("/user/login", user);
     };
 
+    // 注册用户
+    this.registerS = function (user) {
+        return $http.post("/user/register", user);
+    }
+
 });

@@ -12,6 +12,19 @@ app.controller('userController', function ($scope, $rootScope, userService) {
                 location.href = "/static/user/login.html";
             }
         })
+    };
+
+    // 注册用户
+    $scope.register = function (user) {
+        userService.registerS(user).success(function (responseData) {
+            alert(responseData.mssg);
+            if (responseData.sign) {
+                location.href = "/static/user/login.html";
+            } else {
+                alert("请重新注册用户");
+                location.href = "/static/user/register.html";
+            }
+        })
     }
 
 });

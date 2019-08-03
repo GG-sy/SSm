@@ -34,6 +34,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
+        <!--若url-pattern为“*.do”，则dispatcherServlet只会拦截“*.do”的请求路径，其它资源都将放行，包含静态资源-->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 

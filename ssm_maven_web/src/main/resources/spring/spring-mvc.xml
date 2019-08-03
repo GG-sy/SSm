@@ -23,7 +23,7 @@
             <!--对哪些资源进行拦截操作：拦截所有（包括子级）-->
             <mvc:mapping path="/**"/>
             <!--对哪些资源排除拦截操作-->
-            <mvc:exclude-mapping path="/static/user/login.html"/>
+            <mvc:exclude-mapping path="/static/user/*"/>
             <mvc:exclude-mapping path="/static/js/*"/>
             <mvc:exclude-mapping path="/user/*"/>
             <bean class="com.cnsdhh.ssmmaven.interceptor.MyInterceptor"/>

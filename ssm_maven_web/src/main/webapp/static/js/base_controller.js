@@ -1,5 +1,5 @@
 // 为应用程序（app）定义一个基础控制器：baseController
-app.controller('baseController', function ($rootScope) {
+app.controller('baseController', function ($scope, $rootScope, $interval) {
 
     // 刷新ids数组中已选中的id元素
     $rootScope.refreshIds = function () {
@@ -44,5 +44,25 @@ app.controller('baseController', function ($rootScope) {
         }
         $rootScope.refreshIds();
     };
+
+    // 动态显示当前系统时间
+    $rootScope.sysTime = new Date().toLocaleString();
+    $interval(function () {
+        $rootScope.sysTime = new Date().toLocaleString();
+    }, 1000);
+
+    // 轮播显示我的站点
+    var mySites = [
+        {name:"我的站点：", url:"https://www.cnsdhh.com"},
+        {name:"我的博客：", url:"https://blog.cnsdhh.com"},
+        {name:"码云主页：", url:"https://gitee.com/cnsdhh"}
+        ];
+    var i = 0;
+    $rootScope.mySite = mySites[i];
+    $interval(function () {
+        i++;
+        if (i >= mySites.length) { i = 0; }
+        $rootScope.mySite = mySites[i];
+    }, 2000);
 
 });

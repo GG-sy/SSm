@@ -10,7 +10,7 @@ import java.util.Map;
 public class BaseController {
 
     // 创建一个封装响应消息的集合
-    public static Map<String, Object> getResultMap() {
+    static Map<String, Object> getResultMap() {
         Map<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("sign", false);
         resultMap.put("mssg", "失败");

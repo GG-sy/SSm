@@ -2,8 +2,10 @@ package com.cnsdhh.test;
 
 import com.cnsdhh.ssmmaven.mapper.LogDao;
 import com.cnsdhh.ssmmaven.mapper.StudentDao;
+import com.cnsdhh.ssmmaven.mapper.UserDao;
 import com.cnsdhh.ssmmaven.pojo.Log;
 import com.cnsdhh.ssmmaven.pojo.Student;
+import com.cnsdhh.ssmmaven.pojo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +79,25 @@ public class DaoTest {
 //        log.setUrl("test dao ....");
 //        log.setCost(100);
 //        logDao.insertLog(log);
+//    }
+
+    @Autowired
+    private UserDao userDao;
+
+    @Test
+    public void userDaoLogin() {
+        User loginUser = userDao.login("lalala", "111111");
+        System.out.println(loginUser);
+    }
+
+//    @Test
+//    public void userDaoRegister() {
+//        User user = new User();
+//        user.setUsername("test1");
+//        user.setPassword("111111");
+//        Integer status = userDao.register(user);
+//        // 返回值是“1”为成功，其它为失败
+//        System.out.println(status);
 //    }
 
 }

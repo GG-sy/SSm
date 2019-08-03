@@ -20,8 +20,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    // 查询登录用户（POST方式）
-    // testURL : http://localhost:8080/user/login.html
+    // 用户登录（POST方式）
+    // testURL : http://localhost:8080/static/user/login.html
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody Map login(@RequestBody User user, HttpServletRequest request) {
         Map<String, Object> resultMap = BaseController.getResultMap();
@@ -37,19 +37,21 @@ public class UserController {
                     resultMap.put("mssg", "成功");
                     return resultMap;
                 } else {
+                    resultMap.put("mssg", "用户名或密码错误");
                     return resultMap;
                 }
             } catch (Exception e) {
+                resultMap.put("mssg", "服务器出错");
                 return resultMap;
             }
         } else {
-            resultMap.put("mssg", "请输入用户名或密码才能登录！");
+            resultMap.put("mssg", "请输入用户名或密码才能登录");
             return resultMap;
         }
     }
 
-    // 查询登录用户（GET方式）
-    // testURL : http://localhost:8080/user/login.do?username=admin&password=admin
+    // 用户登录（GET方式）
+    // testURL : http://localhost:8080/static/user/login.do?username=admin&password=admin
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public @ResponseBody Map login(
             @RequestParam(value = "username", required = false) String username,
@@ -66,13 +68,34 @@ public class UserController {
                     resultMap.put("mssg", "成功");
                     return resultMap;
                 } else {
+                    resultMap.put("mssg", "用户名或密码错误");
                     return resultMap;
                 }
             } catch (Exception e) {
+                resultMap.put("mssg", "服务器出错");
                 return resultMap;
             }
         } else {
-            resultMap.put("mssg", "请输入用户名或密码才能登录！");
+            resultMap.put("mssg", "请输入用户名或密码才能登录");
+            return resultMap;
+        }
+    }
+
+    // 用户注册（POST方式）
+    // testURL : http://localhost:8080/static/user/register.html
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public @ResponseBody Map register(@RequestBody User user) {
+        Map<String, Object> resultMap = BaseController.getResultMap();
+        if (user != null) {
+            try {
+                Integer status = userService.register(user);
+                return BaseController.ifStatus(status, resultMap);
+            } catch (Exception e) {
+                resultMap.put("mssg", "服务器出错");
+                return resultMap;
+            }
+        } else {
+            resultMap.put("mssg", "请输入用户名和密码才能注册");
             return resultMap;
         }
     }
