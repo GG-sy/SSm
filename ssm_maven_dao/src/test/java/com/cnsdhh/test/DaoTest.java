@@ -7,6 +7,7 @@ import com.cnsdhh.ssmmaven.pojo.Log;
 import com.cnsdhh.ssmmaven.pojo.Student;
 import com.cnsdhh.ssmmaven.pojo.User;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -100,7 +101,21 @@ public class DaoTest {
 //        System.out.println(status);
 //    }
 
-
+@Test
+    public void test(){
+        int x,y;
+        for(x=1,y=1;x<=100;x++){
+            if (y>=20){
+                break;
+            }
+            if (y%3==1){
+                y+=3;
+                continue;
+            }
+            y-=5;
+        }
+    System.out.println("x="+x+"y="+y);
+}
 
 
 }
